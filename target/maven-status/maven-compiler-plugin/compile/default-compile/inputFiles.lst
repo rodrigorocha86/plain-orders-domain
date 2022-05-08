@@ -1,0 +1,12 @@
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/usecase/model/CustomerDto.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/repository/Orders.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/entity/OrderItem.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/entity/Cpf.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/entity/Customer.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/entity/Order.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/entity/Product.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/usecase/CreateCustomerAccount.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/repository/Products.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/repository/Customers.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/domain/service/OrderService.java
+/Users/rodrigorocha/Projetos/Java/plain-orders-domain/plain-orders-domain/src/main/java/it/rocha/plain/orders/usecase/impl/CreateCustomerAccountImpl.java
