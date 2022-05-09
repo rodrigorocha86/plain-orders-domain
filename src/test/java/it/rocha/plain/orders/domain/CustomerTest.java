@@ -1,7 +1,7 @@
 package it.rocha.plain.orders.domain;
 
-import it.rocha.plain.orders.domain.entity.Cpf;
-import it.rocha.plain.orders.domain.entity.Customer;
+import it.rocha.plain.orders.domain.customer.Cpf;
+import it.rocha.plain.orders.domain.customer.Customer;
 import org.junit.Assert;
 import org.junit.Test;
 

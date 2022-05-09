@@ -1,4 +1,4 @@
-package it.rocha.plain.orders.domain.entity;
+package it.rocha.plain.orders.domain.customer;
 
 public final class Cpf {
     private final String value;

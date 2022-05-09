@@ -1,4 +1,6 @@
-package it.rocha.plain.orders.domain.entity;
+package it.rocha.plain.orders.domain.order;
+
+import it.rocha.plain.orders.domain.product.Product;
 
 import java.math.BigDecimal;
 

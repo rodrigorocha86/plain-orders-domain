@@ -1,10 +1,10 @@
 package it.rocha.plain.orders.usecase.impl;
 
-import it.rocha.plain.orders.usecase.model.CustomerDto;
+import it.rocha.plain.orders.domain.customer.Cpf;
+import it.rocha.plain.orders.domain.customer.Customer;
+import it.rocha.plain.orders.repository.Customers;
 import it.rocha.plain.orders.usecase.CreateCustomerAccount;
-import it.rocha.plain.orders.domain.entity.Cpf;
-import it.rocha.plain.orders.domain.entity.Customer;
-import it.rocha.plain.orders.domain.repository.Customers;
+import it.rocha.plain.orders.usecase.model.CustomerDto;
 
 import javax.inject.Named;
 

@@ -1,6 +1,6 @@
-package it.rocha.plain.orders.domain.repository;
+package it.rocha.plain.orders.repository;
 
-import it.rocha.plain.orders.domain.entity.Order;
+import it.rocha.plain.orders.domain.order.Order;
 
 import java.util.Set;
 

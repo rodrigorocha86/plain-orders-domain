@@ -1,6 +1,6 @@
 package it.rocha.plain.orders.domain;
 
-import it.rocha.plain.orders.domain.entity.Product;
+import it.rocha.plain.orders.domain.product.Product;
 import org.junit.Assert;
 import org.junit.Test;
 

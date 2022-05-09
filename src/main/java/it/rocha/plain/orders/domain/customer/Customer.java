@@ -1,4 +1,4 @@
-package it.rocha.plain.orders.domain.entity;
+package it.rocha.plain.orders.domain.customer;
 
 import java.time.LocalDate;
 
