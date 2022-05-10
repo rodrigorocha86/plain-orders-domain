@@ -6,18 +6,26 @@ import java.math.BigDecimal;
 
 public final class OrderItem {
 
+    private final String productCode;
+    private  BigDecimal productValue;
     private Integer amount;
-    private final Product product;
 
-    public OrderItem(Integer amount, Product product) {
+    OrderItem(
+            String productCode, BigDecimal productValue,
+            Integer amount) {
+        validateProduct(productCode, productValue);
+        this.productCode = productCode;
+        this.productValue = productValue;
+
         changeAmount(amount);
-        validateProduct(product);
-        this.product = product;
     }
 
-    private void validateProduct(Product product) {
-        if(product == null) {
-            throw new IllegalArgumentException("Product is mandatory");
+    private void validateProduct(String productCode, BigDecimal productValue) {
+        if(productCode == null) {
+            throw new IllegalArgumentException("ProductCode is mandatory");
+        }
+        if(productValue == null) {
+            throw new IllegalArgumentException("ProductCode is mandatory");
         }
     }
 
@@ -30,6 +38,6 @@ public final class OrderItem {
     }
 
     public BigDecimal getTotal() {
-        return product.getValue().multiply(BigDecimal.valueOf(amount));
+        return productValue.multiply(BigDecimal.valueOf(amount));
     }
 }

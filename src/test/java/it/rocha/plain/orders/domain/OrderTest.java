@@ -15,12 +15,8 @@ public class OrderTest {
     @Test
     public void testCreateNewValidOrderOneItem() {
         Order order = new Order(
-                999L,
-                createCustomer(),
-                new Product(
-                        "001", "S20",
-                        "Smartphone Samsung", BigDecimal.TEN));
-
+                999L, "001",
+                "001", BigDecimal.TEN);
         Assert.assertEquals((long) 999L, (long) order.getNumber());
         Assert.assertEquals(BigDecimal.TEN, order.getTotal());
         Assert.assertEquals(1, order.getItems().size());
@@ -29,26 +25,12 @@ public class OrderTest {
     @Test
     public void testCreateNewValidOrderMoreItems() {
         Order order = new Order(
-                999L,
-                createCustomer(),
-                new Product(
-                        "001", "S20",
-                        "Smartphone Samsung", BigDecimal.TEN));
-
-        order.addItem(5,
-                new Product(
-                "002", "S22",
-                "Smartphone Samsung", BigDecimal.TEN));
+                999L, "001",
+                "001", BigDecimal.TEN);
+        order.addItem("002", BigDecimal.TEN, 5);
 
         Assert.assertEquals((long) 999L, (long) order.getNumber());
         Assert.assertEquals(BigDecimal.valueOf(60L), order.getTotal());
         Assert.assertEquals(2, order.getItems().size());
-    }
-
-    private Customer createCustomer() {
-        return new Customer(
-                new Cpf("55555555555"),
-                "Fulano Silva",
-                LocalDate.parse("1980-01-01"));
     }
 }

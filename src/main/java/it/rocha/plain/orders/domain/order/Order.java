@@ -1,5 +1,6 @@
 package it.rocha.plain.orders.domain.order;
 
+import it.rocha.plain.orders.domain.customer.Cpf;
 import it.rocha.plain.orders.domain.customer.Customer;
 import it.rocha.plain.orders.domain.product.Product;
 
@@ -11,47 +12,50 @@ import java.util.Set;
 public final class Order {
 
     private final Long number;
-
-    private final Customer customer;
-
+    private final String customerCode;
     private final Set<OrderItem> items;
     private BigDecimal total;
 
     public Order(
-            Long number, Customer customer,
-            Product product) {
-        validate(number, customer, product);
+            Long number, String customerCode,
+            String productCode, BigDecimal productValue) {
+        validate(number, customerCode, productCode, productValue);
         this.number = number;
-        this.customer = customer;
+        this.customerCode = customerCode;
         this.items = new HashSet<>();
-        addItem(1, product);
+        addItem(productCode, productValue, 1);
     }
 
     private void validate(
-            Long number, Customer customer,
-            Product product) {
+            Long number, String customerCode,
+            String productCode, BigDecimal productValue) {
         if(number == null) {
             throw new IllegalArgumentException("Number is mandatory.");
         }
 
-        if(customer == null) {
-            throw new IllegalArgumentException("Customer is mandatory.");
+        if(customerCode == null) {
+            throw new IllegalArgumentException("CustomerCode is mandatory.");
         }
 
-        if(product == null) {
-            throw new IllegalArgumentException("Product is mandatory.");
+        if(productCode == null) {
+            throw new IllegalArgumentException("ProductCode is mandatory.");
+        }
+
+        if(productValue == null) {
+            throw new IllegalArgumentException("ProductValue is mandatory.");
         }
     }
 
     private void calculateTotal() {
         this.total = items.stream()
                 .map(OrderItem::getTotal)
-                .reduce(BigDecimal.ZERO, (tempTotal, currTotal) -> tempTotal.add(currTotal));
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public void addItem(
-            Integer amount, Product product) {
-        this.items.add(new OrderItem(amount, product));
+            String productCode, BigDecimal productValue,
+            Integer amount) {
+        this.items.add(new OrderItem(productCode, productValue, amount));
         calculateTotal();
     }
 

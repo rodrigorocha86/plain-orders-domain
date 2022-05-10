@@ -4,24 +4,26 @@ import java.time.LocalDate;
 
 public final class Customer {
 
+    private final String code;
     private final Cpf cpf;
     private String name;
     private LocalDate birthdate;
 
     public Customer(
-            Cpf cpf, String name,
-            LocalDate birthdate) {
-        validate(cpf);
+            String code, Cpf cpf,
+            String name, LocalDate birthdate) {
+        if(code == null) {
+            throw new IllegalArgumentException("Code is mandatory.");
+        }
+        this.code = code;
+
+        if(cpf == null) {
+            throw new IllegalArgumentException("CPF is mandatory.");
+        }
         this.cpf = cpf;
 
         changeName(name);
         changeBirthdate(birthdate);
-    }
-
-    private void validate(Cpf cpf) {
-        if(cpf == null) {
-            throw new IllegalArgumentException("CPF is mandatory.");
-        }
     }
 
     public void changeName(String name) {
@@ -40,6 +42,8 @@ public final class Customer {
         }
         this.birthdate = birthdate;
     }
+
+    public String getCode() { return code; }
 
     public Cpf getCpf() {
         return cpf;

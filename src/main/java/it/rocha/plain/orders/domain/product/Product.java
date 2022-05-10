@@ -12,7 +12,9 @@ public final class Product {
     public Product(
             String code, String name,
             String description, BigDecimal value) {
-        validateCode(code);
+        if(code == null) {
+            throw new IllegalArgumentException("Attribute code is mandatory.");
+        }
         this.code = code;
 
         changeName(name);
@@ -20,11 +22,6 @@ public final class Product {
         changeValue(value);
     }
 
-    private void validateCode(String code) {
-        if(code == null) {
-            throw new IllegalArgumentException("Attribute code is mandatory.");
-        }
-    }
     public void changeName(String name) {
         if(name == null
                 || name.length() <= 1
@@ -50,6 +47,15 @@ public final class Product {
 
         }
         this.value = value;
+    }
+
+    public void increaseValueBy(BigDecimal percentageIncrease) {
+        if(BigDecimal.ZERO.compareTo(percentageIncrease) >= 0) {
+            throw new IllegalArgumentException("Invalid percentageIncrease: " + percentageIncrease);
+        }
+        BigDecimal divider = BigDecimal.ONE.add(
+                percentageIncrease.divide(BigDecimal.valueOf(100L)));
+        changeValue(getValue().multiply(divider));
     }
 
     public String getCode() {

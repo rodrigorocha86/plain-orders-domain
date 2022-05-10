@@ -14,6 +14,7 @@ public class CustomerTest {
         Throwable result = Assert.assertThrows(
                 IllegalArgumentException.class,
                 () -> new Customer(
+                        "001",
                         new Cpf("55555555555"),
                         "R",
                         LocalDate.parse("1986-09-04")));
@@ -24,6 +25,7 @@ public class CustomerTest {
     @Test
     public void testNewValidCustomer() {
         Customer customer = new Customer(
+                "001",
                 new Cpf("55555555555"),
                 "Rodrigo Rocha de Moraes",
                 LocalDate.parse("1986-09-04"));

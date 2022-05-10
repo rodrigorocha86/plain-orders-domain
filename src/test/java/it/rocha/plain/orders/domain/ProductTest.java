@@ -50,7 +50,9 @@ public class ProductTest {
                 () -> new Product(
                         "001", "ABC",
                         "Desc", BigDecimal.valueOf(-1)));
-        Assert.assertEquals("Invalid value: -1", result.getMessage());
+        Assert.assertEquals(
+                "Invalid value: -1",
+                result.getMessage());
     }
 
     @Test
@@ -60,7 +62,9 @@ public class ProductTest {
                 () -> new Product(
                         "001", "ABC",
                         "Desc", BigDecimal.ZERO));
-        Assert.assertEquals("Invalid value: 0", result.getMessage());
+        Assert.assertEquals(
+                "Invalid value: 0",
+                result.getMessage());
     }
 
     @Test
@@ -68,6 +72,21 @@ public class ProductTest {
         Product product = new Product(
                 "001", "ABC",
                 "Desc", BigDecimal.TEN);
-        Assert.assertEquals(BigDecimal.TEN, product.getValue());
+        Assert.assertEquals(
+                BigDecimal.TEN,
+                product.getValue());
+    }
+
+    @Test
+    public void testProductValueIncrease10Percent() {
+        Product product = new Product(
+                "001", "ABC",
+                "Desc", BigDecimal.TEN);
+
+        product.increaseValueBy(BigDecimal.TEN);
+
+        Assert.assertEquals(
+                BigDecimal.valueOf(11.0D),
+                product.getValue());
     }
 }
